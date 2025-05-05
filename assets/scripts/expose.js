@@ -21,8 +21,8 @@ function init() {
     let horn = hornDropdown.value;
 
     // set image and audio attributes
-    hornImage.setAttribute('src', 'assets/images/' + horn + '.svg');
-    audioElement.setAttribute('src', 'assets/audio/' + horn + '.mp3');
+    hornImage.src = 'assets/images/' + horn + '.svg';
+    audioElement.src = 'assets/audio/' + horn + '.mp3';
   }
 
   // change volume slider
@@ -45,8 +45,8 @@ function init() {
     }
 
     // set icon and audio attributes
-    volumeIcon.setAttribute('src', 'assets/icons/volume-level-' + level + '.svg');
-    audioElement.setAttribute('volume', volume / 100.00);
+    volumeIcon.src = 'assets/icons/volume-level-' + level + '.svg';
+    audioElement.volume = volume / 100.00;
   }
 
   // click "Play Sound" button
