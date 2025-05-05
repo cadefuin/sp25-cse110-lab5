@@ -12,14 +12,17 @@ function init() {
   const volumeIcon = document.querySelector('input + img');
 
   const playButton = document.querySelector('button');
+  const audioElement = document.querySelector('audio');
 
   // EVENT LISTENERS
 
   // change horn dropdown menu
   hornDropdown.onchange = function() {
-    // change image
+    let horn = hornDropdown.value;
 
-    // change audio file
+    // set image and audio attributes
+    hornImage.setAttribute('src', 'assets/images/' + horn + '.svg');
+    audioElement.setAttribute('src', 'assets/audio/' + horn + '.mp3');
   }
 
   // change volume slider
