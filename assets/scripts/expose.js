@@ -28,7 +28,7 @@ function init() {
   }
 
   // change volume slider
-  volumeSlider.onchange = function() {
+  volumeSlider.oninput = function() {
     let volume = volumeSlider.value;
     let level;
 
