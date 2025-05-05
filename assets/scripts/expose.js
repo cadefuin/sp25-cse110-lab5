@@ -5,8 +5,12 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   // ELEMENT REFERENCES
 
+  const hornImage = document.querySelector('img:has(+ :is(select))');
   const hornDropdown = document.getElementById('horn-select');
+
   const volumeSlider = document.getElementById('volume');
+  const volumeIcon = document.querySelector('input + img');
+
   const playButton = document.querySelector('button');
 
   // EVENT LISTENERS
