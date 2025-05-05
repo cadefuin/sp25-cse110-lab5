@@ -14,6 +14,8 @@ function init() {
   const playButton = document.querySelector('button');
   const audioElement = document.querySelector('audio');
 
+  const jsConfetti = new JSConfetti();
+
   // EVENT LISTENERS
 
   // change horn dropdown menu
@@ -51,13 +53,14 @@ function init() {
 
   // click "Play Sound" button
   playButton.onclick = function() {
-    let horn; // get horn value
+    let horn = hornDropdown.value;
     
     // play sound at specified volume
-
+    audioElement.play();
+    
     // shoot confetti if party horn
     if (horn == 'party-horn') {
-
+      jsConfetti.addConfetti();
     }
   }
 }
