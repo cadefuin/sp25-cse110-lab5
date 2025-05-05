@@ -56,8 +56,9 @@ function init() {
     let horn = hornDropdown.value;
     
     // play sound at specified volume
+    audioElement.currentTime = 0;
     audioElement.play();
-    
+
     // shoot confetti if party horn
     if (horn == 'party-horn') {
       jsConfetti.addConfetti();
