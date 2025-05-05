@@ -27,21 +27,26 @@ function init() {
 
   // change volume slider
   volumeSlider.onchange = function() {
-    let volume; // get volume value
+    let volume = volumeSlider.value;
+    let level;
 
-    // change based on volume level
+    // determine volume level
     if (volume == 0) {
-
+      level = 0;
     }
     else if (volume < 33) {
-
+      level = 1;
     }
     else if (volume < 67) {
-
+      level = 2;
     }
     else {
-
+      level = 3;
     }
+
+    // set icon and audio attributes
+    volumeIcon.setAttribute('src', 'assets/icons/volume-level-' + level + '.svg');
+    audioElement.setAttribute('volume', volume / 100.00);
   }
 
   // click "Play Sound" button
