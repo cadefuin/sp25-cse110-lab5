@@ -5,12 +5,12 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   // ELEMENT REFERENCES
 
-  const smileyImage = document.querySelector('image');
+  const smileyImage = document.querySelector('img');
   const textInput = document.getElementById('text-to-speak');
   const voiceSelect = document.getElementById('voice-select');
   const talkButton = document.querySelector('button');
 
-  
+
   // populate "Select Voice" dropdown
   const synth = window.speechSynthesis;
   let voices;
@@ -30,6 +30,7 @@ function init() {
   }
 
   populateVoiceList();
+
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
@@ -37,8 +38,15 @@ function init() {
 
   // EVENT LISTENERS
 
+  function stopSpeaking() {
+    smileyImage.src = 'assets/images/smiling.png';
+  }
+
+
   // click "Press to Talk" button
   talkButton.onclick = function() {
+    synth.cancel();
+    
     const utterance = new SpeechSynthesisUtterance(textInput.value);
     const selectedOption =
       voiceSelect.selectedOptions[0].getAttribute("data-name");
@@ -48,7 +56,12 @@ function init() {
         utterance.voice = voices[i];
       }
     }
-
+    
+    smileyImage.src = 'assets/images/smiling-open.png';
     synth.speak(utterance);
-  }
+    
+    utterance.onend = function() {
+      smileyImage.src = 'assets/images/smiling.png';
+    };
+  };
 }
